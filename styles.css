@@ -1,9 +1,9 @@
 body{
-    background-color: antiquewhite;
+    background-color: azure;
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h1{
-    background-color: azure;
+    background-color: antiquewhite;
     padding: 1em;
 }
