@@ -1,5 +1,11 @@
 function listSelector(){
+    var a = document.createElement("a");
     var ol = document.getElementsById("list_links");
+    var li = document.createElement("li");
+    a.textContent = "week02";
+    a.setAttribute('href', 'week02/index.html');
+    li.appendChild(a);
+    ol.appendChild(li);
     const list = [
         {
             label: "Week01",
