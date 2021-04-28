@@ -82,6 +82,89 @@
             I did not have any Questions from chapter 3.
           </li>
         </ol>
+        <li>
+          <h4>Assignments combined in quiz</h4>
+          <h3>Notes:</h3>
+          - Chapter 4: 
+          Another way of defining a function literal is to create a function expression. This assigns an anonymous function to a variable:<br>
+          const goodbye = function(){<br>
+            console.log('Goodbye World!');<br>
+          };<br>
+          this example is known as an anonymous function because it doesn't have a name.<br>
+          Alternatively, we can create a named function expression instead:<br>
+          const goodbye = function bye(){<br>
+            console.log('Goodbye World!');<br>
+          };<br>
+          The name of this function is bye , and it has been assigned to the variable goodbye.<br>
+          Notice also that the example ends with a semicolon. This finishes the assignment statement, whereas a normal function<br> 
+          declaration ends in a block (there's no need for semicolons at the end of blocks).<br>
+          A much better option is to use the rest operator. This was introduced in ES6 and can be used to deal with multiple arguments<br> 
+          by creating an array of arguments that are available inside the body of the function.<br>
+          To use the rest operator, simply place three dots in front of the last parameter in a function declaration. This will<br> 
+          then collect all the arguments entered into an array. For example, the following function will have access to an array of<br> 
+          all the arguments entered:<br>
+          function rest(...args){<br>
+              return args;<br>
+          }<br>
+          The args parameter is an actual array, and has access to the same methods. For example we can use a for-of loop to iterate<br> 
+          over each value given as an argument:<br>
+          function rest(...args){<br>
+              for(arg of args){<br>
+                  console.log(arg);<br>
+              }<br>
+          }<br>
+          We can use a rest parameter to improve our mean() function so it accepts any number of values:<br>
+          function mean(...values) {<br>
+              let total = 0;<br>
+              for(const value of values) {<br>
+                  total += value;<br>
+              }<br>
+              return total/values.length;<br>
+          }<br>
+          ES6 introduced a convenient way to specify default parameters for a function. These are values that will be used by the<br>
+          function if no arguments are provided when it is invoked. To specify a default parameter, simply assign the default value<br>
+          to it in the function definition:<br>
+          function hello(name='World') {<br>
+              console.log(`Hello ${name}!);<br>
+          }<br>
+          Now if we call this function without an argument, it will use 'World' as the name parameter:<br>
+          hello();<br>
+          << 'Hello World!'<br>
+          We can override the default value, by specifying our own argument:<br>
+          hello('Universe');<br>
+          << 'Hello Universe!<br>
+          When adding more parameters than one default parameters must follow all other parameters.<br>
+          Arrow functions can be identified by the 'arrow' symbol, => that gives them their name. The parameters<br> 
+          come before the arrow and the main body of the function comes after. Arrow functions are always anonymous,<br>
+          so if you want to refer to them, you must assign them to a variable. For example, the square function we<br> 
+          wrote earlier can be written like so:<br>
+          const square = x => x*x;<br>
+          Arrow functions have a number of advantages over other ways of declaring functions:<br><br>
+
+          - They are much less verbose than normal function declarations.<br>
+          - Single parameters don't need putting into parentheses.<br>
+          - The body of the function doesn't need placing inside a block if it's only one line.<br>
+          - The return keyword isn't required if the return statement is the only statement in the body of the function.<br>
+          - They don't bind their own value of this to the function (we'll see why this is a particularly useful property<br> 
+          * when we cover objects later).<br>
+          In the square example above parameter, x didn't need to go in parentheses because it's the only parameter.<br> 
+          Multiple parameters need to go inside parentheses.<br>
+          If the function doesn't require any parameters, a pair of empty parentheses must go before the arrow.<br>
+          Longer functions will still require curly braces to deliminate the body of the function, the return keyword<br>
+          will also be needed at the end. Here is an example of a simple tax calculator:<br>
+          const tax = (salary) => {<br>
+            const taxable = salary - 8000;<br>
+            const lowerRate = 0.25 * taxable;<br>
+            taxable = taxable - 20000;<br>
+            const higherRate = 0.4 * taxable;<br>
+            return lowerRate + higherRate;<br>
+          }<br>
+          A number of the benefits are lost, once the function body becomes longer than one line.<br>
+          <h3>Callbacks:</h3>
+          Remember at the start of this chapter when we said that functions in JavaScript are first-class objects,<br>
+          so they behave in just the same way as every other object? This means that functions can also be given as<br>
+          a parameter to another function. A function that is passed as an argument to another is known as a callback.<br> 
+        </li>
       </li>
     </ul>
   </body>
