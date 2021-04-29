@@ -8,16 +8,30 @@
         <script src="adding.js"></script>
     </head>
     <body>
-        <input id="input" type="number"> 
+        <input id="input" type="number" placeholder="Enter a number" /> 
         <button onclick="add()">Enter</button>
         <div id="output"></div>
 
-        <input id="input2" type="number"> 
+        <input id="input2" type="number" placeholder="Enter a number" /> 
         <button onclick="numArg()">Enter</button>
         <div id="output2"></div>
 
-        <input id="input3" type="number"> 
+        <input id="input3" type="number" placeholder="Enter a number" /> 
         <button onclick="final()">+</button>
-        <div id="output3"></div>    
+        <div id="output3"></div>  
+        
+        <h3>Stretch</h3>
+        
+        <input id="stretchNumber1" placeholder="enter a number" type="number" />
+        <input id="stretchNumber2" placeholder="enter a number" type="number" />
+        <!-- 
+        * Notice below that all of our buttons are calling the same function but passing in the name of another function as the argument. 
+        * When you pass a function as a callback you DO NOT include the ()! If you add the () the function will get executed immediately 
+        * instead of later like we would like. 
+        -->
+        <button id="stretchAdd" onclick="performOperation(add2)">+</button>
+        <button id="stretchSub" onclick="performOperation(sub2)">-</button>
+        <button id="stretchMult" onclick="performOperation(mult2)">*</button>
+        <div id="stretchOutput"></div>
     </body>
 </html>
