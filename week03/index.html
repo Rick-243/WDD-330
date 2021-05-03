@@ -11,12 +11,49 @@
     <h2>Week03</h2>
     <ul>
       <li>
-        <a href=""></a>
+        <a href="object_quiz.html">Take a quiz</a> - This is the same quiz as week 2. However,<br>
+        it uses objects instead of nested arrays.<br>
         <h3>Notes:</h3>
+        - Chapter 5: - All objects are mutable at any time when a program is running.<br> 
+        This means that its properties and methods can be changed or removed, and new<br> 
+        properties and methods can be added to the object, even if it was declared using const.<br>
+        To create an object literal, simply enter a pair of curly braces. The following example<br>
+        creates an empty object that is assigned to the variable spiderman :<br>
+        const spiderman = {};<br>
+        The above example is the preferred method of creating an object, and is an object literal notation.<br>
+        ES6 provided a shorthand method of creating objects if a property key is the same as a variable name<br> 
+        that the property value is assigned to:<br>
+        const name = 'Iron Man';<br>
+        const realName = 'Tony Stark';<br>
+        // long way<br>
+        const ironMan = { name: name, realName: realName };<br>
+        // short ES6 way<br>
+        const ironMan = { name, realName };<br>
+        Dot notation is much more common, but bracket notation has a few advantages: it's the only way to access<br> 
+        nonstandard property and method names that don’t follow the variable naming rules. It also lets you evaluate<br> 
+        an expression and use it as the property key:<br>
+        const superman = {<br>
+          name: 'Superman',<br>
+          'real name': 'Clark Kent',<br>
+          height: 75,<br>
+          weight: 235,<br>
+          hero: true,<br>
+          villain: false,<br>
+          allies: ['Batman','Supergirl','Superboy'],<br>
+          fly() {<br>
+              return 'Up, up and away!';<br>
+          }<br>
+        };<br>
+        superman["real" + " " + "name"] // the property is built using string concatenation<br>
+        << "Clark Kent"<br>
+        The expression 'real name' was used as the property key.<br> 
         <h3>Questions:</h3>
         <ol>
           <li>
-              
+            Are symbols a preferred way of creating property keys?
+          </li>
+          <li>
+            What is a real world example of nested objects?
           </li>
         </ol>
       </li>
