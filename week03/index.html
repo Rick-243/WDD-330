@@ -47,13 +47,28 @@
         superman["real" + " " + "name"] // the property is built using string concatenation<br>
         << "Clark Kent"<br>
         The expression 'real name' was used as the property key.<br> 
+        <h3>Notes:</h3>
+        - Chapter 7:<br>
+        ul id='list'<br>
+          li -one- li<br>
+          li -two- li<br>
+          li -three- li<br>
+        ul<br>
+        If you click on one of the <em>li</em> elements, you’re also clicking on the <em>ul</em> , <em>body</em><br> 
+        and <em>html</em> elements. An event is said to propagate as it moves from one element to another.<br>
+        Event propagation is the order that the events fire on each element. There are two forms<br> 
+        of event propagation: bubbling and capturing.<br>
+        Bubbling is when the event fires on the element clicked on first, then bubbles up the document tree,<br> 
+        firing an event on each parent element until it reaches the root node.<br><br>
+        Capturing starts by firing an event on the root element, then propagates downwards, firing an event<br> 
+        on each child element until it reaches the target element that was clicked on.<br>
         <h3>Questions:</h3>
         <ol>
           <li>
             Are symbols a preferred way of creating property keys?
           </li>
           <li>
-            What is a real world example of nested objects?
+            Will you please look at my object_quiz.js code and give me feedback?
           </li>
         </ol>
       </li>
