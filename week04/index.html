@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 330 portfolio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>WDD 330 portfolio</h1>
+    <h2>Week04</h2>
+    <ul>
+      <li>
+        <a href="hero.html">Check out this superhero form</a>
+        <a href="form_quiz.html">Take a quiz</a> - This quiz has text input. 
+        <a href="select_quiz.html">The multiple-choice quiz</a>   
+        <h3>Notes:</h3><br>
+        My notes for chapter 8 are in the superhero form code. 
+        Chapter 12 notes-<br>
+        The easiest way to create an object is to use the literal syntax<br>
+        const literalObject = {};<br>
+        It is suggested to always use literals to create arrays<br>
+        const literalArray = [1, 2, 3];<br>
+        Class declaration syntax:<br>
+        class Dice {<br>
+          constructor(sides=6) {<br>
+            this.sides = sides;<br>
+          }<br>
+          roll() {<br>
+            return Math.floor(this.sides * Math.random() + 1)<br>
+          }<br>
+        }<br>
+        Now you may create an instance of the Dice class using the new operator:<br>
+        const blueDice = new Dice(20);<br>
+        this gives you and instance of Dice with 20 sides.<br>
+        Check the instance:<br>
+        blueDice instanceof Dice<br>
+        << true<br>
+        blueDice.sides<br>
+        << 20<br>
+        blueDice.roll()<br>
+        << 12<br>
+        The ES6 class declarations are preferable to the constructor function syntax<br> 
+        because they are more succinct, easier to read and all code in a class definition<br> 
+        is implicitly in strict mode, so doesn't need the 'use strict' statement.<br>
+        <strong>Static Methods:</strong><br>
+        The static keyword can be used in class declarations to create a static method.<br>
+        These are sometimes called class methods in other programming languages.<br>
+        A static method is called by the class directly rather than by instances of the class.<br>
+        class Dice {<br>
+          constructor(sides=6) {<br>
+              this.sides = sides;<br>
+          }<br>
+          roll() {<br>
+              return Math.floor(this.sides * Math.random() + 1)<br>
+          }<br>
+          static description() {<br>
+              return 'A way of choosing random numbers'<br>
+          }<br>
+        }<br>
+        This method is called from the Dice class like so:<br>
+        Dice.description()<br>
+        << 'A way of choosing random numbers'<br>
+        Static methods are not available to instances of the class.<br>
+        Example:<br>
+        blueDice.description<br>
+        will throw a type error of blue.description is not a function.<br>
+        Every time an instance of a class queries a prototype property, it will return<br>
+        the value of that property. This value is the same for all instances, and only exists<br>
+        in one place-as a property of the prototype. This means that it only exists in memory<br>
+        in on place, which is more efficient than each instance having its own value.<br>
+        Create a class for Ninja Turtles:<br>
+        class Turtle {<br>
+          constructor(name) {<br>
+              this.name = name;<br>
+              this.weapon = 'hands';<br>
+          }<br>
+          sayHi() {<br>
+              return `Hi dude, my name is ${this.name}`;<br>
+          }<br>
+          attack(){<br>
+              return `Feel the power of my ${this.weapon}!`;<br>
+          }<br>
+        }<br>
+        Create a new Turtle instance:<br>
+        const leo = new Turtle('Leonardo');<br>
+        The variable leo points to an instance of the Turtle class. It has a name property<br>
+        and a sayHi() method that references the name property:<br>
+        leo.name<br>
+        << Leonardo<br>
+        leo.sayHi<br>
+        << Hi dude, my name is Leonardo<br>
+        Prototype property and inheritance:<br>
+        Turtle.prototype<br>
+        << Turtle {}<br>
+        All instances of the the Turtle class share all the properties and methods of its prototype.<br>
+        Turtle.prototype.weapon = 'Hands';<br>
+        We can also add a method to the prototype in a similar way:<br>
+        Turtle.prototype.attack = function(){<br>
+          return `Feel the power of my ${this.weapon}!`;<br>
+        }<br>
+        Now if we create a new Turtle instance, we can see that it inherits the weapon property<br>
+        and attack() method from the Turtle.prototype object, as well as receiving the name property<br>
+        and sayHi() method from the class declaration:<br>
+        const raph = new Turtle('Raphael');<br>
+        raph.name<br>
+        << Raphael<br>
+        raph.sayHi()<br>
+        << 'Hi dude, my name is Raphael'<br>
+        raph.weapon<br>
+        << 'Hands'<br>
+        raph.attack()<br>
+        << 'Feel the power of my Hands!'<br>
+        Notice that there’s a reference to this.weapon in the prototype attack() method,<br>
+        and when the instance calls the attack() method, it uses the instance’s weapon property.<br>
+        This is because this in the prototype always refers to the instance that actually calls the method.<br>
+        Finding Out the Prototype:<br>
+        The preferred way is to use the Object.getPrototypeOf() method, which takes the object as a parameter:<br>
+        Object.getPrototypeOf(raph);<br>
+        << Turtle { attack: [Function], weapon: 'Hands' }<br>
+        Every object has a hasOwnProperty() method that can be used to check if a method is its own property,<br> 
+        or is inherited from the prototype:<br>
+        raph.hasOwnProperty('name');<br>
+        << true // has its own property from the class<br>
+        raph.hasOwnProperty('weapon');<br>
+        << false // inherited from the prototype<br>
+        Overwriting Prototype Properties:<br>
+        An object instance can overwrite any properties or methods inherited from its prototype<br>
+        by simply assigning a new value to them. For example:<br>
+        leo.weapon = 'Katana Blades';
+        << 'Katana Blades';<br>
+        raph.weapon = 'Sai';<br>
+        << 'Sai'<br>
+        These properties will now become an 'own property' of the instance object:<br>
+        leo<br>
+        << Turtle { name: 'Leonardo', weapon: 'Katana Blades' }<br>
+        Any own properties will take precedence over the same prototype property when used in methods:<br>
+        leo.attack();<br>
+        << 'Feel the power of my Katana Blades!'<br>
+        What Should the Prototype Be Used For?<br>
+        The prototype can be used to add any new properties and methods after the class has been declared.<br> 
+        It should be used to define any properties that will remain the same for every instance of the class.<br>
+        The weapon example was used to learn how to overwrite.<br>
+        A better example would be food:<br>
+        Turtle.prototype.food = 'Pizza';<br>
+        Methods are likely to be the same for all instances of a constructor, so it's fine to add methods to the prototype:<br>
+        Turtle.prototype.eat = function(){<br>
+          return 'Mmm, this ${this.food} taste great!';<br>
+        }<br>
+        A golden rule to remember is: Never use arrays or objects as a default value in prototype.<br>
+        This is not a problem if arrays or objects are set as default values from within the constructor<br> 
+        function in the class declaration.<br>
+        Properties of objects in JavaScript are said to be enumerable or non-enumerable. If they aren't enumerable,<br> 
+        this means they will not show up when a for-in loop is used to loop through an object’s properties and methods.<br>
+        There is a method called propertyIsEnumerable() that every object has (because it’s a method of Object.prototype )<br> 
+        that can be used to check if a property is enumerable.<br>
+        Good practice is for all built-in methods to be non-enumerable, and any user-defined methods to be made enumerable.<br>
+        This is so all the built-in methods don’t keep showing up when looking at an object’s methods,<br> 
+        but user-defined methods are easy to find.<br>
+        Mixin function:<br>
+        function mixin(target,...objects) {<br>
+          for (const object of objects) {<br>   
+          if(typeof object === 'object') {<br>
+              for (const key of Object.keys(object)) {<br>
+                  if (typeof object[key] === 'object') {<br>
+                  target[key] = Array.isArray(object[key]) ? [] : {};<br>
+                  mixin(target[key],object[key]);<br>
+                  } else {<br>
+                  Object.assign(target,object);<br>  
+                  }<br>
+              }<br>
+              }<br>
+          }<br>
+          return target;<br>
+        }<br> 
+        The first parameter is the object that we are applying the mixin to.<br>
+        The second parameter uses the rest parameter ...objects to allow multiple objects to be 'mixed in' at once.<br>
+        These will be available in the function as an array called objects .<br>
+        We then use a for-of loop to iterate through each object in this array.<br>
+        Next we iterate through each property in the object using the Object.keys() iterable.<br>
+        The next line ensures a deep copy.<br>
+        If the property is an object, we use a ternary operator to check whether it is an array or<br> 
+        an object using the Array.isArray() method. If it is an array, then its constructor function will be Array.<br>
+        We create a new array literal, otherwise we create a new object literal.<br>
+        Then we apply the mixin method recursively to add each property one at a time to the literal that was just created,<br> 
+        instead of just using assignment.<br>
+        And finally, the else statement states that Object.assign should still be used for any properties that are not arrays<br> 
+        or objects because a shallow copy will work fine for those.<br>
+        Using Mixins to Add Properties<br>
+        One use for the mixin() function is to add a large number of properties to an object all at once.<br> 
+        Using Mixins to Create a copy() Function<br>
+        Another use of the mixin() function is to create a copy() method that can be used to make an exact, deep copy of an object:<br>
+        function copy(target) {<br>
+          const object =  Object.create(Object.getPrototypeOf(target));<br>
+          mixin(object,target);<br>
+          return object;<br>
+        }<br>
+        The copy function also takes a parameter called target , which is the object to be copied.<br> 
+        The first thing we do is create a new object based on the prototype of the object that we are copying.<br>
+        The mixin() function is then used to add all the properties and methods of the object to this new object,<br> 
+        effectively making an exact copy of itself.<br>
+        Read up on factory functions on SitePoint.<br>
+        Using the Mixin Function to Add Modular Functionality<br>
+        sometimes we just want to add properties and methods without linking the two objects together. The mixin() function<br> 
+        lets us encapsulate properties and methods in an object, then add them to other objects without the overhead<br>
+        of an inheritance chain being created.<br>
+        One way to think about the difference between prototypal inheritance and inheritance from mixin objects is to consider<br>
+        whether an object is something or whether it has something. For example, a tank is a vehicle, so it might inherit<br>
+        from a Vehicle prototype. The tank also has a gun, so this functionality could be added using a gun mixin object.<br>
+        This gives us extra flexibility, since other objects might also use a gun, but not be a vehicle,<br> 
+        such as a soldier object, for example. The soldier object might inherit from a Human prototype and also have the gun mixin.<br>
+        Chaining Functions<br>
+        If a method returns this , its methods can be chained together to form a sequence of method calls that are called one after<br> 
+        the other. A drawback of this is that it makes your code harder to debug. Because several methods are on one line it makes<br>
+        it difficult to know which method is causing the error.<br>
+        <h3>Questions:</h3>
+        <ol>
+          <li>
+            What is considered more efficient in JavaScript: to create classes, create objects from other objects,<br> 
+            or use constructor functions?
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </body>
+</html>
