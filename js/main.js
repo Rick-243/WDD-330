@@ -24,6 +24,10 @@ function listSelector(){
         {
             label: "team_assignment",
             url: "team_assignment_05/index.html"
+        },
+        {
+            label: "Todo list",
+            url: "todo/index.html"
         }       
     ]
     for(let i = 0; i < list.length; i++){
