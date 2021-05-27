@@ -116,9 +116,21 @@
     border-radius: 7px;
     margin-top: 3px;
     padding: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  .all {
+    padding-left: 10px;
+    padding-right: 5px;
   }
   
+  .active {
+    padding: 5px;
+  }
+
+  .complete {
+    padding: 5px;
+  }
+
   /* applied when the todo item is checked */
   .checked { 
     text-decoration: line-through;
