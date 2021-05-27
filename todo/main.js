@@ -76,6 +76,9 @@ function toggle(id) {
     });
   
     ls.addToLocalStorage(todos);
+    ut.filterAll();
+    ut.filterActive();
+    ut.filterCompleted();
 }
 
 // deletes a todo from todos array, then updates local storage and renders updated list to screen
@@ -88,6 +91,8 @@ function deleteTodo(id) {
       // update the localStorage
       ls.addToLocalStorage(todos);
       ut.showTasks();
+      ut.filterAll();
+      ut.filterActive();
 }
 // ls.getFromLocalStorage(); // where should I put this for it to work?
 
@@ -106,16 +111,9 @@ todoItemsList.addEventListener('click', function(event) {
       deleteTodo(event.target.parentElement.getAttribute('data-key'));
     }
     renderTodos(todos);
+    ut.filterAll();
+    ut.filterActive();
 });
-
-function displayActive(){
-  let activeArr = [];
-  activeArr = todos.filter(function(todo){
-    if(todo.completed === false){
-      activeArr.push(todo);
-    }
-  });
-}
 
 todos = ls.getFromLocalStorage();
 renderTodos(todos);
@@ -124,5 +122,4 @@ export {
     todoItemsList,
     todos,
     renderTodos,
-    displayActive
 }

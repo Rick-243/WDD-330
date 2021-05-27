@@ -23,20 +23,51 @@ function showTasks(){
         arr = JSON.parse(number);
     }
     let total = document.querySelector('.pending');
-    total.textContent = arr.length;
+    let arrFilter = arr.filter((a)=>{if(!a.completed){return a}});
+    let count = Object.keys(arrFilter).length;
+    total.textContent = count;
+}
 
-    let checked = document.querySelector(".todo-items");
-    
-    checked.addEventListener('click', function(event){
-        if(event.target.type === 'checkbox'){
-            let count = Object.keys(arr).length;
-            count--;
-            total.textContent = count;
-        } 
-    }); 
+function filterAll(){
+    let number = localStorage.getItem("todos");
+    let all;
+    if(number == null){
+        all = [];
+    } else {
+        all = JSON.parse(number);
+    }
+    let allFilter = all.filter((a)=>{if(a.completed || !a.completed){return a}});
+    console.log(allFilter);
+}
+
+function filterActive(){
+    let number = localStorage.getItem("todos");
+    let active;
+    if(number == null){
+        active = [];
+    } else {
+        active = JSON.parse(number);
+    }
+    let activeFilter = active.filter((a)=>{if(!a.completed){return a}});
+    console.log(activeFilter); 
+}
+
+function filterCompleted(){
+    let number = localStorage.getItem("todos");
+    let completed;
+    if(number == null){
+        completed = [];
+    } else {
+        completed = JSON.parse(number);
+    }
+    let compFilter = completed.filter((a)=>{if(a.completed){return a}});
+    console.log(compFilter);
 }
 
 export {
     checkTodos,
-    showTasks
+    showTasks,
+    filterAll,
+    filterActive,
+    filterCompleted
 }
