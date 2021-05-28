@@ -24,7 +24,7 @@ let todos = [];
     });
     
     // add event listeners on links and listen for submit event
-    // assign items the filter functions from utilities then use 
+    // assign items the filter functions from utilities then call 
     // renderTodos function to display appropriate arrays
     all.addEventListener('click', function(event){
       event.preventDefault();
