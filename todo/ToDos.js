@@ -16,33 +16,33 @@ const complete = document.querySelector('.complete');
 
 // array which stores every todos
 let todos = [];
-    // add an eventListener on form, and listen for submit event
-    todoForm.addEventListener('submit', function(event) {
-    // prevent the page from reloading when submitting the form
-    event.preventDefault();
-    addTodo(todoInput.value); // call addTodo function with input box current value
-    });
-    
-    // add event listeners on links and listen for submit event
-    // assign items the filter functions from utilities then call 
-    // renderTodos function to display appropriate arrays
-    all.addEventListener('click', function(event){
-      event.preventDefault();
-      let items = ut.filterAll();
-      renderTodos(items);
-    });
+// add an eventListener on form, and listen for submit event
+todoForm.addEventListener('submit', function(event) {
+// prevent the page from reloading when submitting the form
+event.preventDefault();
+addTodo(todoInput.value); // call addTodo function with input box current value
+});
 
-    active.addEventListener('click', function(event){
-      event.preventDefault();
-      let items = ut.filterActive();
-      renderTodos(items);
-    });
+// add event listeners on links and listen for submit event
+// assign items the filter functions from utilities then call 
+// renderTodos function to display appropriate arrays
+all.addEventListener('click', function(event){
+  event.preventDefault();
+  let items = ut.filterAll();
+  renderTodos(items);
+});
 
-    complete.addEventListener('click', function(event){
-      event.preventDefault();
-      let items = ut.filterCompleted();
-      renderTodos(items);
-    });
+active.addEventListener('click', function(event){
+  event.preventDefault();
+  let items = ut.filterActive();
+  renderTodos(items);
+});
+
+complete.addEventListener('click', function(event){
+  event.preventDefault();
+  let items = ut.filterCompleted();
+  renderTodos(items);
+});
 
 function addTodo(item){
     // if item is not empty
