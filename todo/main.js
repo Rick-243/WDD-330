@@ -7,6 +7,10 @@ const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('.todo-input');
 // select the <ul> with class="todo-items"
 const todoItemsList = document.querySelector('.todo-items');
+const all = document.querySelector('.all');
+const active = document.querySelector('.active');
+const complete = document.querySelector('.complete');
+
 // array which stores every todos
 let todos = [];
     // add an eventListener on form, and listen for submit event
@@ -14,6 +18,24 @@ let todos = [];
     // prevent the page from reloading when submitting the form
     event.preventDefault();
     addTodo(todoInput.value); // call addTodo function with input box current value
+    });
+
+    all.addEventListener('click', function(event){
+      event.preventDefault();
+      let items = ut.filterAll();
+      renderTodos(items);
+    });
+
+    active.addEventListener('click', function(event){
+      event.preventDefault();
+      let items = ut.filterActive();
+      renderTodos(items);
+    });
+
+    complete.addEventListener('click', function(event){
+      event.preventDefault();
+      let items = ut.filterCompleted();
+      renderTodos(items);
     });
     
 function addTodo(item){
@@ -113,6 +135,7 @@ todoItemsList.addEventListener('click', function(event) {
     renderTodos(todos);
     ut.filterAll();
     ut.filterActive();
+    ut.filterCompleted();
 });
 
 todos = ls.getFromLocalStorage();
