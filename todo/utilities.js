@@ -1,6 +1,3 @@
-// second list for active todos
-const activeTodoItems = document.querySelector('.todo-items');
-
 function checkTodos(){
     let num = localStorage.getItem("todos");
     let todos;
@@ -37,7 +34,7 @@ function filterAll(){
         all = JSON.parse(number);
     }
     let allFilter = all.filter((a)=>{if(a.completed || !a.completed){return a}});
-    console.log(allFilter);
+    return allFilter;
 }
 
 function filterActive(){
@@ -49,7 +46,7 @@ function filterActive(){
         active = JSON.parse(number);
     }
     let activeFilter = active.filter((a)=>{if(!a.completed){return a}});
-    console.log(activeFilter); 
+    return activeFilter; 
 }
 
 function filterCompleted(){
@@ -61,7 +58,7 @@ function filterCompleted(){
         completed = JSON.parse(number);
     }
     let compFilter = completed.filter((a)=>{if(a.completed){return a}});
-    console.log(compFilter);
+    return compFilter;
 }
 
 export {
