@@ -37,7 +37,7 @@ let todos = [];
       let items = ut.filterCompleted();
       renderTodos(items);
     });
-    
+
 function addTodo(item){
     // if item is not empty
     if (item !== '') {
@@ -115,6 +115,7 @@ function deleteTodo(id) {
       ut.showTasks();
       ut.filterAll();
       ut.filterActive();
+      ut.filterCompleted();
 }
 // ls.getFromLocalStorage(); // where should I put this for it to work?
 
