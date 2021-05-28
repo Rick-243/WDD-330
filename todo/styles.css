@@ -21,8 +21,6 @@
     list-style-type: none; /* get rid of bullet points on side of list items */
   }
   
-  /* common style ends */
-  
   /* container */
   .container {
     min-width: 700px;
@@ -63,7 +61,6 @@
     font-size: 1.4rem;
   }
   
-  /* todo-form style ends */
 
   /* todo-items */
 .todo-items {
