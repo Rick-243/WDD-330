@@ -1,5 +1,5 @@
-import * as ls from 'https://rick-243.github.io/WDD-330/./ls.js';
-import * as ut from 'https://rick-243.github.io/WDD-330/./utilities.js'
+import * as ls from './ls.js';
+import * as ut from './utilities.js'
 
 // select the todo-form
 const todoForm = document.querySelector('.todo-form');
