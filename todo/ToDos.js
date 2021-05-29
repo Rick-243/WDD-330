@@ -136,6 +136,8 @@ todoItemsList.addEventListener('click', function(event) {
     renderTodos(todos);
 });
 
+/*
 todos = ls.getFromLocalStorage();
 renderTodos(todos);
 ut.showTasks();
+*/
