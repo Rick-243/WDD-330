@@ -18,9 +18,9 @@ const complete = document.querySelector('.complete');
 let todos = [];
 // add an eventListener on form, and listen for submit event
 todoForm.addEventListener('submit', function(event) {
-// prevent the page from reloading when submitting the form
-event.preventDefault();
-addTodo(todoInput.value); // call addTodo function with input box current value
+  // prevent the page from reloading when submitting the form
+  event.preventDefault();
+  addTodo(todoInput.value); // call addTodo function with input box current value
 });
 
 // add event listeners on links and listen for submit event
