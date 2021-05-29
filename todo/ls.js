@@ -19,4 +19,4 @@ function getFromLocalStorage() {
 export {
     addToLocalStorage,
     getFromLocalStorage,
-}
+};
