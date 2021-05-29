@@ -81,7 +81,7 @@ function renderTodos(todos){
         li.setAttribute('data-key', item.id);
         // if item is completed, then add a class to <li> called 'checked', which will add line-through style
         if (item.completed === true) {
-        li.classList.add('checked');
+          li.classList.add('checked');
         }
 
         li.innerHTML = `
