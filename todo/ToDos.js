@@ -15,7 +15,7 @@ const active = document.querySelector('.active');
 const complete = document.querySelector('.complete');
 
 // array which stores every todos
-var todos = [];
+let todos = [];
 // add an eventListener on form, and listen for submit event
 todoForm.addEventListener('submit', function(event) {
   // prevent the page from reloading when submitting the form
