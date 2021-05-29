@@ -18,5 +18,5 @@ function getFromLocalStorage() {
 
 export {
     addToLocalStorage,
-    getFromLocalStorage,
+    getFromLocalStorage
 };
