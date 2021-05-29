@@ -1,5 +1,5 @@
-import * as ls from './ls.js';
-import * as ut from './utilities.js'
+import * as ls from './Ls.js';
+import * as ut from './Utilities.js'
 
 // select the todo-form
 const todoForm = document.querySelector('.todo-form');
