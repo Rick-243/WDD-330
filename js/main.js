@@ -28,6 +28,10 @@ function listSelector(){
         {
             label: "Todo list",
             url: "todo/index.html"
+        },
+        {
+            label: "Week07",
+            url: "week07/index.html"
         }       
     ]
     for(let i = 0; i < list.length; i++){
