@@ -112,6 +112,12 @@ const game = {
     }
     this.ask();
   },
+  gameOver(){
+    console.log('gameOver() invoked');
+    view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
+    view.teardown();
+    clearInterval(this.timer);
+  },
   hiScore(){
     const hi = localStorage.getItem('highScore') || 0;
     if(this.score > hi || hi === 0) {
@@ -119,11 +125,5 @@ const game = {
       view.render(view.info,'** NEW HIGH SCORE! **');
     }
     return localStorage.getItem('highScore');
-  },
-  gameOver(){
-    console.log('gameOver() invoked');
-    view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
-    view.teardown();
-    clearInterval(this.timer);
   }
 }
