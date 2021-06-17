@@ -38,7 +38,7 @@ function listSelector(){
             url: "week08/index.html"
         },
         {
-            label: "WEek09",
+            label: "Week09",
             url: "week09/index.html"
         }       
     ]
