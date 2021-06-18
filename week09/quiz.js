@@ -26,6 +26,7 @@ function shuffle(array) {
 // View Object
 const view = {
   score: document.querySelector('#score strong'),
+  hiScore: document.querySelector('#hiScore strong'),
   question: document.querySelector('#question'),
   result: document.querySelector('#result'),
   info: document.querySelector('#info'),

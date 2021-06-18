@@ -65,7 +65,7 @@ function addTodo(item){
         todoInput.value = '';
     }   
 }
-function renderTodos(todos){
+function renderTodos(todos = []){
     // clear everything inside <ul> with class=todo-items
     todoItemsList.innerHTML = '';
 
