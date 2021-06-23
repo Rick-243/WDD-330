@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>JS Form Validation</title>
+        <link rel="stylesheet" href="form.css">
+    </head>
+    <body>
+        <!--The novalidate attribute stops the browser from showing its own error message bubbles-->
+        <!--and allows us to show our own custom error messages in the DOM. It doesn't disable support-->
+        <!--for the constraint validation API or CSS pseudo-classes like :valid ect.-->
+        <form novalidate>
+            <p>
+              <label for="mail">
+                  <span>Please enter an email address:</span>
+                  <input type="email" id="mail" name="mail" required minlength="8">
+                  <span class="error" aria-live="polite"></span>
+              </label>
+            </p>
+            <button>Submit</button>
+        </form>
+        <script src="form.js"></script>
+    </body>
+</html>
