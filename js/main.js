@@ -40,6 +40,10 @@ function listSelector(){
         {
             label: "Week09",
             url: "week09/index.html"
+        },
+        {
+            label: "Week10",
+            url: "week10/index.html"
         }       
     ]
     for(let i = 0; i < list.length; i++){
