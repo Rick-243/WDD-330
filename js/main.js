@@ -44,6 +44,10 @@ function listSelector(){
         {
             label: "Week10",
             url: "week10/index.html"
+        },
+        {
+            label: "team assignment 10",
+            url: "TeamAct10/quakes.html"
         }       
     ]
     for(let i = 0; i < list.length; i++){
