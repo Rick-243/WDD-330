@@ -9,7 +9,7 @@ const input = document.querySelector(".top-banner input");
 const msg = document.querySelector(".top-banner .msg");
 const list = document.querySelector(".ajax-section .cities");
 
-const apiKey = "fce7b112189e29970591a3784debd3d3";
+const apiKey = ""; //insert your API 
 
 
 form.addEventListener("submit", event => {
